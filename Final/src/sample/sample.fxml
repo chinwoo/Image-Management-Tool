@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.collections.FXCollections?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            id="borderPane" fx:id="borderPane" fx:controller="sample.Controller" stylesheets="@styles.css" >
+
+    <!--left section-->
+    <left>
+        <VBox styleClass="left-section" alignment="CENTER">
+            <GridPane  alignment="BOTTOM_CENTER" hgap="20" minHeight="300" maxWidth="300" minWidth="300" vgap="10">
+                <HBox GridPane.columnIndex="0" GridPane.rowIndex="0" spacing="20">
+                    <Button id="uploadBtn" fx:id="uploadBtn" alignment="CENTER" prefHeight="50" prefWidth="200"
+                            text="Select Image"  onAction="#uploadHandle">
+                    </Button>
+
+                </HBox>
+
+                <HBox GridPane.columnIndex="0" GridPane.rowIndex="1" spacing="20">
+
+                    <VBox GridPane.columnIndex="0" GridPane.rowIndex="1" spacing="10">
+
+                        <GridPane vgap="10" hgap="10">
+                            <ChoiceBox fx:id="choiceBox" id="choiceBox"  prefHeight="50.0"  value="jpg" prefWidth="200"
+                                       GridPane.rowIndex="0" GridPane.columnIndex="0">
+                                <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <String fx:value="jpg" />
+                                        <String fx:value="jpeg" />
+                                        <String fx:value="gif" />
+                                        <String fx:value="png" />
+                                    </FXCollections>
+                                </items>
+                            </ChoiceBox>
+
+                        </GridPane>
+
+                        <GridPane vgap="10" hgap="10" prefWidth="200" >
+
+                            <TextField fx:id="textWidth"  id="textWidth" prefWidth="100" promptText="width"
+                                       GridPane.rowIndex="0" GridPane.columnIndex="0" />
+
+                            <TextField fx:id="textHeight"  id="textHeight" prefWidth="100" promptText="height"
+                                       GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                        </GridPane>
+
+                    </VBox>
+
+                </HBox>
+
+                <HBox GridPane.columnIndex="0" GridPane.rowIndex="2" spacing="20">
+                    <VBox>
+                        <Button id="convertBtn" fx:id="convertBtn" prefHeight="50" prefWidth="200" text="Convert &amp; Save"
+                                GridPane.columnIndex="0" GridPane.rowIndex="2" onAction="#handleConvert">
+                        </Button>
+                        <Label fx:id="notChoose" id="errDisplay" text="upload images first" prefWidth="100"
+                               maxWidth="200" visible="false"/>
+                    </VBox>
+                </HBox>
+
+                <columnConstraints>
+                    <ColumnConstraints />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints />
+                </rowConstraints>
+            </GridPane>
+        </VBox>
+    </left>
+    <!--end of left section-->
+
+    <!--center section-->
+    <center>
+        <VBox styleClass="content-section" HBox.hgrow="ALWAYS">
+            <Label fx:id="content_header" id="content-header"/>
+            <GridPane fx:id="gridpane"  vgap="5" hgap="10"/>
+        </VBox>
+    </center>
+    <!--end of center section-->
+
+</BorderPane>
+
