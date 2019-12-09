@@ -1,0 +1,82 @@
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.collections.FXCollections?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            id="borderPane" fx:id="borderPane" fx:controller="shankar.Controller" stylesheets="@CSS.css" >
+
+    <right>
+        <VBox styleClass="left-section" alignment="CENTER">
+            <GridPane  alignment="BOTTOM_CENTER" hgap="30" minHeight="200" maxWidth="200" minWidth="200" vgap="20">
+                <HBox GridPane.columnIndex="0" GridPane.rowIndex="0" spacing="20">
+                    <Button id="uploadBtn" fx:id="uploadBtn" alignment="CENTER" prefHeight="30" prefWidth="120"
+                            text="Select Image"  onAction="#uploadHandle">
+                    </Button>
+
+                </HBox>
+
+                <HBox GridPane.columnIndex="0" GridPane.rowIndex="1" spacing="20">
+
+                    <VBox GridPane.columnIndex="0" GridPane.rowIndex="1" spacing="10">
+
+                        <GridPane vgap="10" hgap="10">
+                            <ChoiceBox fx:id="choiceBox" id="choiceBox"  prefHeight="30.0"  value="jpg" prefWidth="100"
+                                       GridPane.rowIndex="0" GridPane.columnIndex="0">
+                                <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <String fx:value="jpg" />
+                                        <String fx:value="png" />
+                                        <String fx:value="jpeg" />
+                                        <String fx:value="gif" />
+                                    </FXCollections>
+                                </items>
+                            </ChoiceBox>
+
+                        </GridPane>
+
+                        <GridPane vgap="10" hgap="10" prefWidth="80" >
+
+                            <TextField fx:id="textWidth"  id="textWidth" prefWidth="40" promptText="Width"
+                                       GridPane.rowIndex="0" GridPane.columnIndex="0" />
+
+                            <TextField fx:id="textHeight"  id="textHeight" prefWidth="40" promptText="Height"
+                                       GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                        </GridPane>
+
+                    </VBox>
+
+                </HBox>
+
+                <HBox GridPane.columnIndex="0" GridPane.rowIndex="2" spacing="20">
+                    <VBox>
+                        <Button id="convertBtn" fx:id="convertBtn" prefHeight="30" prefWidth="150" text="Process &amp; Save"
+                                GridPane.columnIndex="0" GridPane.rowIndex="2" onAction="#handleConvert">
+                        </Button>
+                        <Label fx:id="notChoose" id="errDisplay" text="Upload image" prefWidth="100"
+                               maxWidth="200" visible="false"/>
+                    </VBox>
+                </HBox>
+
+                <columnConstraints>
+                    <ColumnConstraints />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints />
+                </rowConstraints>
+            </GridPane>
+        </VBox>
+    </right>
+
+
+
+    <left>
+        <GridPane   styleClass="content-section" alignment="CENTER_RIGHT" hgap="30" minHeight="200" maxWidth="200" minWidth="200" vgap="20">
+            <Label fx:id="content_header" id="content-header"/>
+            <GridPane fx:id="gridpane"  vgap="50" hgap="50"/>
+        </GridPane>
+    </left>
+
+
+</BorderPane>
+
